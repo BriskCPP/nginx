@@ -71,7 +71,7 @@ add_executable(NginxWorkbench_executable
                ${NGXSRC_SRC_HTTP_V2}
                ${NGXSRC_SRC_OS_UNIX}
                ${NGXSRC_OBJS}
-               test.cpp nginx_src/nginx_src.h)
+               test.cpp nginx_src/nginx_src.h module_util/module_util.h module_util/common/exception/exception.h module_util/common/log/nginx_log.h module_util/common/commons.h module_util/common/value/unset_value.h module_util/common/time/date_time.h)
 
 
 # TARGET_LINK_LIBRARIES(NginxWorkbench_executable NginxModule_test)
