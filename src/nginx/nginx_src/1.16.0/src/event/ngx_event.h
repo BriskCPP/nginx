@@ -8,7 +8,7 @@
 #ifndef _NGX_EVENT_H_INCLUDED_
 #define _NGX_EVENT_H_INCLUDED_
 
-
+#include <poll.h>
 #include <ngx_config.h>
 #include <ngx_core.h>
 

@@ -86,7 +86,7 @@ ngx_module_t  ngx_http_degradation_module = {
     NGX_MODULE_V1_PADDING
 };
 
-
+ngx_uint_t ngx_http_degraded(ngx_http_request_t *r);
 static ngx_int_t
 ngx_http_degradation_handler(ngx_http_request_t *r)
 {
