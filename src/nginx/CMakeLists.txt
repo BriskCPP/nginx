@@ -4,7 +4,6 @@ project(NginxWorkbench)
 set(CMAKE_CXX_STANDARD 11)
 
 
-
 INCLUDE_DIRECTORIES(
         ./nginx_src/1.16.0/objs
         ./nginx_src/1.16.0/src/core
@@ -45,22 +44,23 @@ list(FILTER NGXSRC_SRC_OS_UNIX EXCLUDE REGEX /os/unix/ngx_linux_aio_read.c$)
 aux_source_directory(nginx_src/1.16.0/objs NGXSRC_OBJS)
 
 
-project(NginxModule_testmodule)
+project(NginxModule__starter_test)   #这个模块可以作为HTTP Module的统一加载点
 project(NginxWorkbench_executable)
 #这个可执行项目一定要最后再定义  因为CLion自动识别的项目名称是根目录下最后一个Project的名称
 
 ADD_DEFINITIONS(-DNGINX_MODULE_WORKBENCH) #这个宏定义是为了避免编译Nginx源代码中的main函数
 
-#add_library(NginxModule_test
-#            ${NGXSRC_SRC_CORE}
-#            ${NGXSRC_SRC_EVENT}
-#            ${NGXSRC_SRC_EVENT_MODULES}
-#            ${NGXSRC_SRC_HTTP}
-#            ${NGXSRC_SRC_HTTP_MODULES}
-#            ${NGXSRC_SRC_HTTP_V2}
-#            ${NGXSRC_SRC_OS_UNIX}
-#            ${NGXSRC_OBJS}
-#            src/toolset/nginx/module/ngx_test_module.cpp)
+add_library(NginxModule__starter_test
+            ${NGXSRC_SRC_CORE}
+            ${NGXSRC_SRC_EVENT}
+            ${NGXSRC_SRC_EVENT_MODULES}
+            ${NGXSRC_SRC_HTTP}
+            ${NGXSRC_SRC_HTTP_MODULES}
+            ${NGXSRC_SRC_HTTP_V2}
+            ${NGXSRC_SRC_OS_UNIX}
+            ${NGXSRC_OBJS}
+            module/http/starter_test/starter_test_module.cpp
+            )
 
 add_executable(NginxWorkbench_executable
                ${NGXSRC_SRC_CORE}
@@ -71,10 +71,19 @@ add_executable(NginxWorkbench_executable
                ${NGXSRC_SRC_HTTP_V2}
                ${NGXSRC_SRC_OS_UNIX}
                ${NGXSRC_OBJS}
-               test.cpp nginx_src/nginx_src.h module_util/module_util.h module_util/common/exception/exception.h module_util/common/log/nginx_log.h module_util/common/commons.h module_util/common/value/unset_value.h module_util/common/time/date_time.h)
+               test.cpp
+               nginx_src/nginx_src.h
+               module_util/module_util.h
+               module_util/common/exception/exception.h
+               module_util/common/log/nginx_log.h
+               module_util/common/commons.h
+               module_util/common/value/unset_value.h
+               module_util/common/time/date_time.h
+               module_util/common/callable/callable.h
+               module_util/module_entry/nginx_module.h)
 
 
-# TARGET_LINK_LIBRARIES(NginxWorkbench_executable NginxModule_test)
+TARGET_LINK_LIBRARIES(NginxWorkbench_executable NginxModule__starter_test)
 
 
 TARGET_LINK_LIBRARIES(NginxWorkbench_executable dl)

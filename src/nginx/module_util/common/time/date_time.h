@@ -47,12 +47,12 @@ namespace nginx
 
 
                     //下面是具体的函数
-                    const int millisecond() const
+                    inline int millisecond() const
                     {
                         return static_cast<int>(ngxTime.msec);
                     }
 
-                    const int seconds(Zone zone = Local) const
+                    inline int seconds(Zone zone = Local) const
                     {
                         ngx_tm_t temp;
                         switch (zone)
@@ -68,7 +68,7 @@ namespace nginx
                         }
                     }
 
-                    const int minutes(Zone zone = Local) const
+                    inline int minutes(Zone zone = Local) const
                     {
                         ngx_tm_t temp;
                         switch (zone)
@@ -84,7 +84,7 @@ namespace nginx
                         }
                     }
 
-                    const int hours(Zone zone = Local) const
+                    inline int hours(Zone zone = Local) const
                     {
                         ngx_tm_t temp;
                         switch (zone)
@@ -101,7 +101,7 @@ namespace nginx
                     }
 
 
-                    const int month(Zone zone = Local) const
+                    inline int month(Zone zone = Local) const
                     {
                         ngx_tm_t temp;
                         switch (zone)
@@ -117,7 +117,7 @@ namespace nginx
                         }
                     }
 
-                    const int year(Zone zone = Local) const
+                    inline int year(Zone zone = Local) const
                     {
                         ngx_tm_t temp;
                         switch (zone)
@@ -133,7 +133,7 @@ namespace nginx
                         }
                     }
 
-                    const int dayOfMonth(Zone zone = Local) const
+                    inline int dayOfMonth(Zone zone = Local) const
                     {
                         ngx_tm_t temp;
                         switch (zone)
@@ -149,7 +149,7 @@ namespace nginx
                         }
                     }
 
-                    const int dayOfWeek(Zone zone = Local) const
+                    inline int dayOfWeek(Zone zone = Local) const
                     {
                         ngx_tm_t temp;
                         switch (zone)
@@ -165,7 +165,7 @@ namespace nginx
                         }
                     }
 
-                    const int dayOfYear(bool firstDayAs1 = true, Zone zone = Local) const
+                    inline int dayOfYear(bool firstDayAs1 = true, Zone zone = Local) const
                     {
                         ngx_tm_t temp;
                         switch (zone)

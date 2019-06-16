@@ -1,0 +1,11 @@
+ngx_addon_name=nginx_starter_test
+
+ngx_module_type=HTTP
+
+# C++代码中ngx_module_t类型变量名
+ngx_module_name=nginxStarterTestModule
+
+ngx_module_srcs="$ngx_addon_dir/starter_test_module.cpp"
+
+. auto/module
+

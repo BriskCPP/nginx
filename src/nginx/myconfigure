@@ -1,0 +1,11 @@
+cd nginx_src/1.16.0
+
+./configure --with-threads \
+    --with-pcre \
+    --with-http_v2_module \
+    --with-http_realip_module \
+    --without-http_fastcgi_module \
+    --with-http_dav_module \
+    --with-http_ssl_module \
+    --add-module=../../module/http/starter_test
+    # --with-stream
